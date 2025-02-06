@@ -28,4 +28,4 @@ jobs:
 
       - name: Run tests inside Docker
         run: |
-          docker run --rm fizzbuzz python -m unittest discover tests
+          docker run --rm fizzbuzz python -m unittest discover test
