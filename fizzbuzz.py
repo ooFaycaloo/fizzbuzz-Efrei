@@ -10,3 +10,6 @@ def fizzbuzz(n):
             print(i)
 
 fizzbuzz(100)
+
+def test_addition():
+    assert 1 + 1 == 2
