@@ -3,10 +3,9 @@ name: Run Docker Unit Tests
 on:
   push:
     branches:
-      
-docker
-pull_request:
-workflow_dispatch:
+      - docker
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   test_docker:
@@ -14,23 +13,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      
-name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      
-name: Set up Docker
-      run: docker --version
+      - name: Set up Docker
+        run: docker --version
 
-      
-name: Build Docker image
-      run: |
-        TEMP_DIR=$(mktemp -d)
-        cp -r . "$TEMP_DIR"
-        cd "$TEMP_DIR"
-        docker build -t fizzbuzz-app .
+      - name: Build Docker image
+        run: |
+          TEMP_DIR=$(mktemp -d)
+          cp -r . "$TEMP_DIR"
+          cd "$TEMP_DIR"
+          docker build -t fizzbuzz-app .
 
-      
-name: Run tests inside Docker
-      run: |
-        docker run --rm fizzbuzz-app python -m unittest discover tests
+      - name: Run tests inside Docker
+        run: |
+          docker run --rm fizzbuzz-app python -m unittest discover tests
