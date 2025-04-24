@@ -3,6 +3,7 @@ from io import StringIO
 import sys
 from fizzbuzz import fizzbuzz
 
+
 class TestFizzBuzz(unittest.TestCase):
     def test_fizzbuzz(self):
         # Capture la sortie standard
@@ -22,6 +23,7 @@ class TestFizzBuzz(unittest.TestCase):
             "11", "Fizz", "13", "14", "Fizzbuzz"
         ]
         self.assertEqual(output, expected_output)
+
 
 if __name__ == '__main__':
     unittest.main()
